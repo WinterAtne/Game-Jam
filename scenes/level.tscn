@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c33c8c4k127jd"]
+[gd_scene load_steps=5 format=3 uid="uid://c33c8c4k127jd"]
 
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_8rgm8"]
 [ext_resource type="PackedScene" uid="uid://cpc1b408ujakp" path="res://scenes/player.tscn" id="1_gxo64"]
 [ext_resource type="Texture2D" uid="uid://cso7f0i4tbihh" path="res://asssets/icon.svg" id="2_n0lej"]
 
@@ -7,6 +8,7 @@
 size = Vector2(118, 125)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_8rgm8")
 
 [node name="Player" parent="." instance=ExtResource("1_gxo64")]
 
