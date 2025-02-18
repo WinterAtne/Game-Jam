@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
+signal gun_fied(direction : Vector2)
 
 const SPEED = 300.0
-
-signal gun_fied(direction : Vector2)
 
 func _physics_process(delta: float) -> void:
 	# Movement Logic
@@ -19,3 +18,6 @@ func _physics_process(delta: float) -> void:
 	if (Input.is_action_just_pressed("shoot")):
 		gun_fied.emit(position.direction_to(get_global_mouse_position()))
 	
+
+func _on_damageable_died() -> void:
+	print("I died")
