@@ -5,7 +5,6 @@ const SPEED = 300.0
 
 signal gun_fied(direction : Vector2)
 
-
 func _physics_process(delta: float) -> void:
 	# Movement Logic
 	var direction_x := Input.get_axis("left", "right")

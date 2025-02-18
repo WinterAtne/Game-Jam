@@ -22,6 +22,5 @@ shape = SubResource("CircleShape2D_wa74q")
 position_smoothing_enabled = true
 
 [node name="Gun" parent="." instance=ExtResource("3_7s370")]
-position = Vector2(0, -64)
 
 [connection signal="gun_fied" from="." to="Gun" method="shoot"]
