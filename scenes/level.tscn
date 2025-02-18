@@ -17,6 +17,8 @@ position = Vector2(457, 220)
 texture = ExtResource("2_n0lej")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 32771
+collision_mask = 32771
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(1, 1.5)
