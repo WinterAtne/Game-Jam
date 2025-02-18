@@ -1,8 +1,17 @@
+class_name Player
 extends CharacterBody2D
 
 signal gun_fied(direction : Vector2)
 
 const SPEED = 300.0
+
+static var instance : Player = null
+
+func _ready() -> void:
+	if instance == null:
+		instance = self
+	else:
+		self.queue_free()
 
 func _physics_process(delta: float) -> void:
 	# Movement Logic
