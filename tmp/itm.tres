@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://c60tx61w4nq1a"]
-
-[ext_resource type="Script" path="res://asssets/resource_definitions/item.gd" id="1_b0yar"]
-
-[resource]
-script = ExtResource("1_b0yar")
-name = &"item"
