@@ -3,7 +3,7 @@ extends Node2D
 
 static var instance : Level = null
 
-func _ready() -> void:
+func _init() -> void:
 	if instance == null:
 		instance = self
 	else:
