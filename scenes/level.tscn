@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c33c8c4k127jd"]
+[gd_scene load_steps=5 format=3 uid="uid://c33c8c4k127jd"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_8rgm8"]
 [ext_resource type="PackedScene" uid="uid://cpc1b408ujakp" path="res://scenes/player.tscn" id="1_gxo64"]
 [ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemy.tscn" id="3_xslmb"]
+[ext_resource type="Texture2D" uid="uid://cmco2nuejtaka" path="res://asssets/tmp_stary_background.png" id="4_fl1cp"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rgm8")
@@ -11,3 +12,11 @@ script = ExtResource("1_8rgm8")
 
 [node name="TestDummy" parent="." instance=ExtResource("3_xslmb")]
 position = Vector2(453, 0)
+
+[node name="TextureRect" type="Parallax2D" parent="."]
+show_behind_parent = true
+repeat_size = Vector2(256, 256)
+repeat_times = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+texture = ExtResource("4_fl1cp")
