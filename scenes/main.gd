@@ -18,12 +18,20 @@ func load_main_menu() -> void:
 	disable_gameplay()
 	%MainMenu.visible = true
 
+func load_credits() -> void:
+	disable_ui()
+	disable_gameplay()
+	%Credits.visible = true
+
 func load_level() -> void:
 	disable_ui()
-	add_child(level)
+	if level.get_parent() == null:
+		add_child(level)
 
 func disable_ui() -> void:
 	%MainMenu.visible = false
+	%Credits.visible = false
 
 func disable_gameplay() -> void:
-	remove_child(level)
+	if level.get_parent() == self:
+		remove_child(level)

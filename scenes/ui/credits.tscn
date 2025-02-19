@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b5dxatoq5gi2e"]
+
+[node name="Credits" type="CanvasLayer"]
+
+[node name="Attributions" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Attributions"]
+layout_mode = 2
+
+[node name="Designer" type="Label" parent="Attributions/VBoxContainer"]
+layout_mode = 2
+text = "Programmer and Designer: Winter d'Atne"
+horizontal_alignment = 1
+
+[node name="Godot" type="Label" parent="Attributions/VBoxContainer"]
+layout_mode = 2
+text = "Godot see: godotengine.org/license"
+horizontal_alignment = 1
+
+[node name="FreeType" type="Label" parent="Attributions/VBoxContainer"]
+layout_mode = 2
+text = "Portions of this software are copyright © 2024
+ The FreeType Project (www.freetype.org). All rights reserved."
+horizontal_alignment = 1
+
+[node name="Buttons" type="CenterContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MainMenu" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Main Menu"
