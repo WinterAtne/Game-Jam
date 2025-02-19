@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c46dertmd34yd"]
+[gd_scene load_steps=6 format=3 uid="uid://c46dertmd34yd"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vlr70"]
 [ext_resource type="PackedScene" uid="uid://bcp1yywo181cd" path="res://scenes/ui/main_menu.tscn" id="2_2ucyk"]
 [ext_resource type="PackedScene" uid="uid://c33c8c4k127jd" path="res://scenes/level.tscn" id="2_gxoi6"]
 [ext_resource type="PackedScene" uid="uid://b5dxatoq5gi2e" path="res://scenes/ui/credits.tscn" id="4_a46pt"]
+[ext_resource type="PackedScene" uid="uid://3mrfm35yqdr5" path="res://scenes/ui/death_screen.tscn" id="5_r7bqr"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_vlr70")
@@ -18,9 +19,15 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 visible = false
 
+[node name="DeathScreen" parent="." instance=ExtResource("5_r7bqr")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Start" to="." method="load_level"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Credits" to="." method="load_credits"]
 [connection signal="button_down" from="Credits/Buttons/MainMenu" to="." method="load_main_menu"]
+[connection signal="button_down" from="DeathScreen/CenterContainer/VBoxContainer/Main Menu" to="." method="load_main_menu"]
 
 [editable path="MainMenu"]
 [editable path="Credits"]
+[editable path="DeathScreen"]

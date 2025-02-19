@@ -23,15 +23,21 @@ func load_credits() -> void:
 	disable_gameplay()
 	%Credits.visible = true
 
+func load_death_screen() -> void:
+	disable_ui()
+	disable_gameplay()
+	%DeathScreen.visible = true
+
 func load_level() -> void:
 	disable_ui()
 	if level.get_parent() == null:
-		add_child(level)
+		add_child.call_deferred(level)
 
 func disable_ui() -> void:
 	%MainMenu.visible = false
 	%Credits.visible = false
+	%DeathScreen.visible = false
 
 func disable_gameplay() -> void:
 	if level.get_parent() == self:
-		remove_child(level)
+		remove_child.call_deferred(level)

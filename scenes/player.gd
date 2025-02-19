@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_damageable_died() -> void:
-	print("I died")
+	Main.instance.load_death_screen()
 
 func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: Vector2) -> void:
 	knockback = attacker.knockback * -direction
