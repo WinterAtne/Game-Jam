@@ -13,10 +13,11 @@ enemy_types = Array[PackedScene]([ExtResource("3_xslmb")])
 
 [node name="TextureRect" type="Parallax2D" parent="."]
 show_behind_parent = true
-repeat_size = Vector2(256, 256)
+repeat_size = Vector2(1024, 1024)
 repeat_times = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+scale = Vector2(4, 4)
 texture = ExtResource("4_fl1cp")
 
 [node name="SpawnTimer" type="Timer" parent="."]

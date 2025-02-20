@@ -13,10 +13,10 @@ radius = 34.0147
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2kc60")
-mussle_velocity = 800.0
+mussle_velocity = 1200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.266575, 0.266575, 0.266575, 1)
+modulate = Color(0.778508, 0, 0.342271, 1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_q2ne5")
 
@@ -24,6 +24,7 @@ texture = ExtResource("2_q2ne5")
 shape = SubResource("CircleShape2D_puho1")
 
 [node name="DeathTimer" type="Timer" parent="."]
+wait_time = 4.0
 one_shot = true
 autostart = true
 

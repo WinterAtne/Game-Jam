@@ -1,5 +1,5 @@
 class_name Damager
 extends Area2D
 
-var damage : int = 1
-var knockback : float = 500
+@export var damage : int = 1
+@export var knockback : float = 1000

@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal gun_fied(direction : Vector2)
 signal died
 
-const SPEED = 300.0
+const SPEED = 500.0
 const knockback_resistance = 20
 
 static var instance : Player = null

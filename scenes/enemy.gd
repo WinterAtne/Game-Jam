@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-const SPEED : int = 225
+const SPEED : int = 600
 
 func _physics_process(delta: float) -> void:
 	var target_direction : Vector2 = global_position.direction_to(Player.instance.global_position)

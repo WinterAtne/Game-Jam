@@ -19,7 +19,7 @@ func spawn_enemies() -> void:
 	add_child(spawned_enemy)
 	
 	var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	spawned_enemy.position = randf_range(800, 1200) * direction + Player.instance.global_position
+	spawned_enemy.position = randf_range(1000, 1600) * direction + Player.instance.global_position
 	
 
 func end_game() -> void:
