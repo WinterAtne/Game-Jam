@@ -20,3 +20,5 @@ repeat_times = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 texture = ExtResource("4_fl1cp")
+
+[connection signal="died" from="Player" to="." method="end_game"]

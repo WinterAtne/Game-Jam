@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal gun_fied(direction : Vector2)
+signal died
 
 const SPEED = 300.0
 const knockback_resistance = 20
@@ -37,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_damageable_died() -> void:
-	Main.instance.load_death_screen()
+	died.emit()
 
 func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: Vector2) -> void:
 	knockback = attacker.knockback * -direction

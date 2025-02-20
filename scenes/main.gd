@@ -34,6 +34,8 @@ func load_level() -> void:
 	if level == null:
 		level = level_template.instantiate()
 		add_child.call_deferred(level)
+		if level.has_signal("game_over"):
+			level.game_over.connect(load_death_screen)
 
 func disable_ui() -> void:
 	%MainMenu.visible = false
