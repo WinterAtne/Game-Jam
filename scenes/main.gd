@@ -3,7 +3,8 @@ extends Node2D
 
 static var instance : Main = null
 
-@export var level : Level
+@export var level_template : PackedScene
+var level : Level
 
 func _ready() -> void:
 	if instance == null:
@@ -30,7 +31,8 @@ func load_death_screen() -> void:
 
 func load_level() -> void:
 	disable_ui()
-	if level.get_parent() == null:
+	if level == null:
+		level = level_template.instantiate()
 		add_child.call_deferred(level)
 
 func disable_ui() -> void:
@@ -39,5 +41,6 @@ func disable_ui() -> void:
 	%DeathScreen.visible = false
 
 func disable_gameplay() -> void:
-	if level.get_parent() == self:
-		remove_child.call_deferred(level)
+	if level != null:
+		level.queue_free()
+		level = null
