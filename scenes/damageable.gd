@@ -4,12 +4,11 @@ extends Area2D
 signal took_damage(attacker : Damager, new_health : int, direction : Vector2)
 signal died()
 
-@export var max_health : int = 5
-var current_health : int
+@export var max_health : int
+@onready var current_health : int = max_health
 
 func _init() -> void:
 	area_entered.connect(_on_area_entered)
-	current_health = max_health
 
 func _on_area_entered(attacker: Area2D) -> void:
 	if attacker is Damager:

@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cso7f0i4tbihh" path="res://asssets/icon.svg" id="2_8asml"]
 [ext_resource type="Script" path="res://scenes/damager.gd" id="4_vv03q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_50f36"]
-radius = 65.123
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m6sp"]
+size = Vector2(126, 126)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxyin"]
 radius = 63.8122
@@ -21,9 +21,11 @@ script = ExtResource("1_qib4t")
 
 [node name="Damageable" type="Area2D" parent="."]
 script = ExtResource("1_4gxbq")
+max_health = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
-shape = SubResource("CircleShape2D_50f36")
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_7m6sp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_8asml")
