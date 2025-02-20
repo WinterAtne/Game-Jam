@@ -7,11 +7,9 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rgm8")
+enemy_types = Array[PackedScene]([ExtResource("3_xslmb")])
 
 [node name="Player" parent="." instance=ExtResource("1_gxo64")]
-
-[node name="Enemy" parent="." instance=ExtResource("3_xslmb")]
-position = Vector2(421, 0)
 
 [node name="TextureRect" type="Parallax2D" parent="."]
 show_behind_parent = true
@@ -20,3 +18,8 @@ repeat_times = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 texture = ExtResource("4_fl1cp")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="spawn_enemies"]
