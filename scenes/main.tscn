@@ -24,6 +24,7 @@ visible = false
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Start" to="." method="load_level"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Credits" to="." method="load_credits"]
 [connection signal="button_down" from="Credits/Buttons/MainMenu" to="." method="load_main_menu"]
+[connection signal="button_down" from="DeathScreen/CenterContainer/VBoxContainer/Restart" to="." method="load_level"]
 [connection signal="button_down" from="DeathScreen/CenterContainer/VBoxContainer/Main Menu" to="." method="load_main_menu"]
 
 [editable path="MainMenu"]

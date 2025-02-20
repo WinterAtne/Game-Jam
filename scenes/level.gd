@@ -21,7 +21,6 @@ func spawn_enemies() -> void:
 	var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	spawned_enemy.position = randf_range(800, 1200) * direction + Player.instance.global_position
 	
-	
 
 func end_game() -> void:
 	game_over.emit()

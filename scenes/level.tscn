@@ -22,4 +22,5 @@ texture = ExtResource("4_fl1cp")
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="died" from="Player" to="." method="end_game"]
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn_enemies"]
