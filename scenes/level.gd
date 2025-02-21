@@ -6,6 +6,7 @@ signal game_over
 static var instance : Level = null
 
 @export var enemy_types : Array[PackedScene] = []
+@export var enemy_spawn_dinstance : int = 2000
 
 func _init() -> void:
 	if instance == null:
@@ -19,7 +20,7 @@ func spawn_enemies() -> void:
 	add_child(spawned_enemy)
 	
 	var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	spawned_enemy.position = randf_range(1000, 1600) * direction + Player.instance.global_position
+	spawned_enemy.position = enemy_spawn_dinstance * direction + Player.instance.global_position
 	
 
 func end_game() -> void:
