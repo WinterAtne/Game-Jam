@@ -4,8 +4,9 @@ extends CharacterBody2D
 signal gun_fied(direction : Vector2)
 signal died
 
-const SPEED = 500.0
-const knockback_resistance = 20
+const SPEED = 750.0
+const UNLOCK_MOVEMENT_UNDER_KNOCKBACK = 100
+const knockback_resistance = 75
 
 static var instance : Player = null
 
@@ -22,10 +23,17 @@ func _physics_process(delta: float) -> void:
 	# Movement Logic
 	var direction_x := Input.get_axis("left", "right")
 	var direction_y := Input.get_axis("up", "down") # Godot axises are upside down
-	var target_velocity := Vector2(direction_x, direction_y) * SPEED
+	var target_velocity := Vector2(direction_x, direction_y).normalized() * SPEED
 	
 	if knockback != Vector2.ZERO:
-		target_velocity = knockback
+		# Don't allow the player to move towards the enemy
+		# Unless they aren't being knocked back too much
+		if knockback.dot(target_velocity) > 0 || \
+		knockback.length() > UNLOCK_MOVEMENT_UNDER_KNOCKBACK:
+			target_velocity += knockback
+		else:
+			target_velocity = knockback
+		
 		knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance * delta * Engine.physics_ticks_per_second)
 	
 	velocity = velocity.move_toward(target_velocity, SPEED * delta * Engine.physics_ticks_per_second)
@@ -42,4 +50,3 @@ func _on_damageable_died() -> void:
 
 func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: Vector2) -> void:
 	knockback = attacker.knockback * -direction
-	velocity += knockback

@@ -34,6 +34,7 @@ texture = ExtResource("2_8asml")
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("4_vv03q")
+knockback = 2000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damager"]
 shape = SubResource("CircleShape2D_bxyin")
