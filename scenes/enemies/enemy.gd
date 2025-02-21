@@ -1,29 +1,18 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var speed : int = 600
-@export var recovery_time : float = 1
+var type : EnemyType = null
 
 var min_distance : float = 200
-var boid_behavior : float = 0.50
 var neighbors : Array[BoidArea] = []
 
+var target : Node2D
 var travel_direction : Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	target = Player.instance
+
 func _physics_process(delta: float) -> void:
-	travel_direction = travel_direction.move_toward(
-		(get_direction_to_target() * (1 - boid_behavior) + get_coherence() * boid_behavior).normalized(),
-		delta * recovery_time)
-	
-	velocity = velocity.move_toward(travel_direction * speed, speed * delta * Engine.physics_ticks_per_second)
-	
-	move_and_slide()
-
-
-func get_direction_to_target() -> Vector2:
-	return Vector2.ZERO
-
-func get_coherence() -> Vector2:
 	var coherence : Vector2
 	for neighbor in neighbors:
 		var direction = global_position.direction_to(neighbor.global_position)
@@ -33,7 +22,18 @@ func get_coherence() -> Vector2:
 		else:
 			coherence += direction / distance
 	
-	return coherence
+	var target_direction : Vector2 = global_position.direction_to(target.global_position)
+	
+	travel_direction = travel_direction.move_toward(
+		((target_direction * (1 - type.coherence_ratio))
+		+ (coherence * type.coherence_ratio)).normalized(),
+		delta * type.change_direction)
+	
+	velocity = velocity.move_toward(
+		travel_direction * type.speed,
+		type.acceloration * delta * Engine.physics_ticks_per_second)
+	
+	move_and_slide()
 
 func die() -> void:
 	queue_free()

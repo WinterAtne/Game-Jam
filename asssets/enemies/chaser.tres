@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=2 format=3 uid="uid://4ekfeluxrnkf"]
+
+[ext_resource type="Script" path="res://asssets/enemies/enemy_type.gd" id="1_8h5a0"]
+
+[resource]
+script = ExtResource("1_8h5a0")
+speed = 600.0
+acceloration = 600.0
+change_direction = 1.0
+lead_by = 1.0
+coherence_ratio = 0.5

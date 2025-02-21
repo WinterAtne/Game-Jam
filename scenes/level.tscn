@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c33c8c4k127jd"]
+[gd_scene load_steps=8 format=3 uid="uid://c33c8c4k127jd"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_8rgm8"]
 [ext_resource type="PackedScene" uid="uid://cpc1b408ujakp" path="res://scenes/player.tscn" id="1_gxo64"]
-[ext_resource type="PackedScene" uid="uid://b0hlgbps8w21n" path="res://scenes/enemies/leader_enemy.tscn" id="3_sdcr3"]
-[ext_resource type="PackedScene" uid="uid://cej37tr861mr" path="res://scenes/enemies/tail_enemy.tscn" id="4_f5a7l"]
+[ext_resource type="Script" path="res://asssets/enemies/enemy_type.gd" id="2_mrpoq"]
+[ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemies/enemy.tscn" id="2_yo8rh"]
+[ext_resource type="Resource" uid="uid://4ekfeluxrnkf" path="res://asssets/enemies/chaser.tres" id="4_5aby5"]
 [ext_resource type="Texture2D" uid="uid://cmco2nuejtaka" path="res://asssets/tmp_stary_background.png" id="4_fl1cp"]
-[ext_resource type="PackedScene" uid="uid://c4fvgutkteb2c" path="res://scenes/enemies/tracker_enemy.tscn" id="4_qigpn"]
+[ext_resource type="Resource" uid="uid://bo7e2x4b8lhd7" path="res://asssets/enemies/leader.tres" id="5_850gv"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rgm8")
-enemy_types = Array[PackedScene]([ExtResource("3_sdcr3"), ExtResource("4_f5a7l"), ExtResource("4_qigpn")])
+enemy_template = ExtResource("2_yo8rh")
+enemy_types = Array[ExtResource("2_mrpoq")]([ExtResource("4_5aby5"), ExtResource("5_850gv")])
 
 [node name="Player" parent="." instance=ExtResource("1_gxo64")]
 

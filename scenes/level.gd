@@ -5,7 +5,8 @@ signal game_over
 
 static var instance : Level = null
 
-@export var enemy_types : Array[PackedScene] = []
+@export var enemy_template : PackedScene = null
+@export var enemy_types : Array[EnemyType] = []
 @export var enemy_spawn_dinstance : int = 2000
 
 func _init() -> void:
@@ -15,8 +16,9 @@ func _init() -> void:
 		self.queue_free()
 
 func spawn_enemies() -> void:
-	var template : PackedScene = enemy_types.pick_random()
-	var spawned_enemy = template.instantiate()
+	var type : EnemyType = enemy_types.pick_random()
+	var spawned_enemy : Enemy = enemy_template.instantiate()
+	spawned_enemy.type = type
 	add_child(spawned_enemy)
 	
 	var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()

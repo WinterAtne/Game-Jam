@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4fvgutkteb2c"]
+[gd_scene load_steps=3 format=3 uid="uid://nylyy4q7fwwf"]
 
 [ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemies/enemy.tscn" id="1_7lomu"]
-[ext_resource type="Script" path="res://scenes/enemies/tracker_enemy.gd" id="2_axaqb"]
+
+[sub_resource type="GDScript" id="GDScript_hf8q8"]
+script/source = "extends Enemy
+
+func get_direction_to_target() -> Vector2:
+	var target_pos := Player.instance.global_position
+	return global_position.direction_to(target_pos)
+"
 
 [node name="TrackerEnemy" instance=ExtResource("1_7lomu")]
-script = ExtResource("2_axaqb")
+script = SubResource("GDScript_hf8q8")

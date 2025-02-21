@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0hlgbps8w21n"]
+[gd_scene load_steps=3 format=3 uid="uid://xjqi1oryni3r"]
 
 [ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemies/enemy.tscn" id="1_ntrtt"]
-[ext_resource type="Script" path="res://scenes/enemies/leader_enemy.gd" id="2_hvaqn"]
+
+[sub_resource type="GDScript" id="GDScript_sw7ql"]
+script/source = "extends Enemy
+
+var lead_by : float = 1.25
+
+func get_direction_to_target() -> Vector2:
+	var target_pos := Player.instance.velocity * lead_by + Player.instance.global_position
+	return global_position.direction_to(target_pos)
+"
 
 [node name="LeaderEnemy" instance=ExtResource("1_ntrtt")]
-script = ExtResource("2_hvaqn")
-speed = 1100
-recovery_time = 0.75
+script = SubResource("GDScript_sw7ql")
 
 [node name="Sprite2D" parent="." index="1"]
 modulate = Color(1, 0.211765, 1, 1)
