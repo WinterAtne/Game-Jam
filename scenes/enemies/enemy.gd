@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var type : EnemyType = null
 
-var min_distance : float = 200
+var min_distance : float = 32
 var neighbors : Array[BoidArea] = []
 
 var target : Node2D
@@ -11,6 +11,7 @@ var travel_direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	target = Player.instance
+	%Sprite2D.texture = type.sprite
 
 func _physics_process(delta: float) -> void:
 	var coherence : Vector2

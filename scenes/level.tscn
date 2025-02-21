@@ -12,16 +12,16 @@
 script = ExtResource("1_8rgm8")
 enemy_template = ExtResource("2_yo8rh")
 enemy_types = Array[ExtResource("2_mrpoq")]([ExtResource("4_5aby5"), ExtResource("5_850gv")])
+enemy_spawn_dinstance = 400
 
 [node name="Player" parent="." instance=ExtResource("1_gxo64")]
 
 [node name="TextureRect" type="Parallax2D" parent="."]
 show_behind_parent = true
-repeat_size = Vector2(1024, 1024)
-repeat_times = 16
+repeat_size = Vector2(256, 256)
+repeat_times = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
-scale = Vector2(4, 4)
 texture = ExtResource("4_fl1cp")
 
 [node name="SpawnTimer" type="Timer" parent="."]
