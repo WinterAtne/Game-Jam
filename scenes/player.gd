@@ -50,3 +50,4 @@ func _on_damageable_died() -> void:
 
 func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: Vector2) -> void:
 	knockback = attacker.knockback * -direction
+	velocity += knockback / 4
