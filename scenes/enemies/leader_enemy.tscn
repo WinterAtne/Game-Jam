@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0hlgbps8w21n"]
+
+[ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemies/enemy.tscn" id="1_ntrtt"]
+[ext_resource type="Script" path="res://scenes/enemies/leader_enemy.gd" id="2_hvaqn"]
+
+[node name="LeaderEnemy" instance=ExtResource("1_ntrtt")]
+script = ExtResource("2_hvaqn")
+speed = 1100
+recovery_time = 0.75
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(1, 0.211765, 1, 1)

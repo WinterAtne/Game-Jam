@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c33c8c4k127jd"]
+[gd_scene load_steps=7 format=3 uid="uid://c33c8c4k127jd"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_8rgm8"]
 [ext_resource type="PackedScene" uid="uid://cpc1b408ujakp" path="res://scenes/player.tscn" id="1_gxo64"]
-[ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemy.tscn" id="3_xslmb"]
+[ext_resource type="PackedScene" uid="uid://b0hlgbps8w21n" path="res://scenes/enemies/leader_enemy.tscn" id="3_sdcr3"]
+[ext_resource type="PackedScene" uid="uid://cej37tr861mr" path="res://scenes/enemies/tail_enemy.tscn" id="4_f5a7l"]
 [ext_resource type="Texture2D" uid="uid://cmco2nuejtaka" path="res://asssets/tmp_stary_background.png" id="4_fl1cp"]
+[ext_resource type="PackedScene" uid="uid://c4fvgutkteb2c" path="res://scenes/enemies/tracker_enemy.tscn" id="4_qigpn"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rgm8")
-enemy_types = Array[PackedScene]([ExtResource("3_xslmb")])
+enemy_types = Array[PackedScene]([ExtResource("3_sdcr3"), ExtResource("4_f5a7l"), ExtResource("4_qigpn")])
 
 [node name="Player" parent="." instance=ExtResource("1_gxo64")]
 

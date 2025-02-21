@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://c05uv3ypr1134"]
 
 [ext_resource type="Script" path="res://scenes/damageable.gd" id="1_4gxbq"]
-[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_qib4t"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_qib4t"]
 [ext_resource type="Texture2D" uid="uid://cso7f0i4tbihh" path="res://asssets/icon.svg" id="2_8asml"]
 [ext_resource type="Script" path="res://scenes/damager.gd" id="4_vv03q"]
-[ext_resource type="Script" path="res://scenes/boid_area.gd" id="5_jrwkx"]
+[ext_resource type="Script" path="res://scenes/enemies/boid_area.gd" id="5_jrwkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7m6sp"]
 size = Vector2(126, 126)
@@ -52,6 +52,6 @@ script = ExtResource("5_jrwkx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoidArea"]
 shape = SubResource("CircleShape2D_8h046")
 
-[connection signal="died" from="Damageable" to="." method="_on_damageable_died"]
+[connection signal="died" from="Damageable" to="." method="die"]
 [connection signal="area_entered" from="BoidArea" to="." method="_on_boid_area_area_entered"]
 [connection signal="area_exited" from="BoidArea" to="." method="_on_boid_area_area_exited"]
