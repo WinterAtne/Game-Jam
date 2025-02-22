@@ -19,6 +19,8 @@ radius = 8.0
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("1_r8t1g")
+hit_sound = ExtResource("7_jhs24")
+jam_sound = ExtResource("8_ovcmo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_f5uee")
@@ -61,14 +63,6 @@ one_shot = true
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
-
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("7_jhs24")
-
-[node name="JamSound" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("8_ovcmo")
 
 [connection signal="gun_fied" from="." to="Gun" method="shoot"]
 [connection signal="gun_jammed" from="." to="PlayerStatus" method="display_jam"]

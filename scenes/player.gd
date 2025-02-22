@@ -18,6 +18,9 @@ const inaccruracy : float = 0.2
 
 static var instance : Player = null
 
+@export var hit_sound : AudioStream = null
+@export var jam_sound : AudioStream = null
+
 var knockback : Vector2 = Vector2.ZERO
 var is_jammed : bool = false
 var can_shoot : bool = true
@@ -78,7 +81,7 @@ func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: V
 	%PlayerStatus.set_health(new_health)
 	%HealTimer.stop()
 	%HealTimer.start(heal_after)
-	%HitSound.play()
+	AudioManager.play_sound(hit_sound)
 
 
 func _on_heal_timer_timeout() -> void:
@@ -98,7 +101,7 @@ func _on_jam_timer_timeout() -> void:
 		is_jammed = true
 		%JamTimer.start(jam_time)
 		%TintLayer.change_color(jam_color, color_transition_weight)
-		%JamSound.play()
+		AudioManager.play_sound(jam_sound)
 		return_color = jam_color
 		gun_jammed.emit()
 
