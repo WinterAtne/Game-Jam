@@ -7,6 +7,8 @@ signal died
 const SPEED = 320.0
 const UNLOCK_MOVEMENT_UNDER_KNOCKBACK = 100
 const knockback_resistance = 60
+const heal_after : float = 4.0
+const heal_again : float = 0.5
 
 static var instance : Player = null
 
@@ -21,6 +23,7 @@ func _ready() -> void:
 		instance = self
 	else:
 		self.queue_free()
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -58,4 +61,12 @@ func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: V
 	knockback = attacker.knockback * -direction
 	velocity += knockback / 4
 	%TintLayer.change_color(damage_color, color_transition_weight)
+	%PlayerStatus.set_health(new_health)
+	%HealTimer.stop()
+	%HealTimer.start(heal_after)
+
+
+func _on_heal_timer_timeout() -> void:
+	var new_health = %Damageable.heal(1)
+	%HealTimer.start(heal_again)
 	%PlayerStatus.set_health(new_health)

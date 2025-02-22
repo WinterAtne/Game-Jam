@@ -31,6 +31,7 @@ position_smoothing_speed = 16.0
 [node name="Gun" parent="." instance=ExtResource("3_7s370")]
 
 [node name="Damageable" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("4_s10mj")
@@ -46,6 +47,10 @@ unique_name_in_owner = true
 [node name="PlayerStatus" parent="." instance=ExtResource("6_vnc02")]
 unique_name_in_owner = true
 
+[node name="HealTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [connection signal="gun_fied" from="." to="Gun" method="shoot"]
 [connection signal="died" from="Damageable" to="." method="_on_damageable_died"]
 [connection signal="took_damage" from="Damageable" to="." method="_on_damageable_took_damage"]
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

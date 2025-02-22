@@ -12,6 +12,12 @@ func _init() -> void:
 	area_entered.connect(_on_area_entered)
 	
 
+func heal(amount : int) -> int:
+	current_health += amount
+	if current_health > max_health:
+		current_health = max_health
+	return current_health
+
 func _on_area_entered(attacker: Area2D) -> void:
 	if attacker is Damager:
 		current_health -= attacker.damage
