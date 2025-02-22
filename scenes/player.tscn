@@ -49,13 +49,20 @@ unique_name_in_owner = true
 
 [node name="HealTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="JamTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 30.0
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="gun_fied" from="." to="Gun" method="shoot"]
 [connection signal="died" from="Damageable" to="." method="_on_damageable_died"]
 [connection signal="took_damage" from="Damageable" to="." method="_on_damageable_took_damage"]
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
 [connection signal="timeout" from="JamTimer" to="." method="_on_jam_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -11,11 +11,14 @@ const heal_after : float = 4.0
 const heal_again : float = 0.5
 const shooting_time : float = 30
 const jam_time : float = 10
+const max_time_between_shots : float = 0.25
+const min_time_between_shots : float = 0.05
 
 static var instance : Player = null
 
 var knockback : Vector2 = Vector2.ZERO
 var is_jammed : bool = false
+var can_shoot : bool = true
 
 var normal_color : Color = Color.TRANSPARENT
 @onready var return_color : Color = normal_color
@@ -55,10 +58,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	# Gun logic
-	if (!is_jammed and Input.is_action_just_pressed("shoot")):
+
+func _process(_delta: float) -> void:
+	if (!is_jammed and can_shoot and Input.is_action_pressed("shoot")):
 		gun_fied.emit(position.direction_to(get_global_mouse_position()))
-	
+		%ShootTimer.start(randf_range(min_time_between_shots, max_time_between_shots))
+		can_shoot = false
 
 func _on_damageable_died() -> void:
 	died.emit()
@@ -89,3 +94,7 @@ func _on_jam_timer_timeout() -> void:
 		%JamTimer.start(jam_time)
 		%TintLayer.change_color(jam_color, color_transition_weight)
 		return_color = jam_color
+
+
+func _on_shoot_timer_timeout() -> void:
+	can_shoot = true
