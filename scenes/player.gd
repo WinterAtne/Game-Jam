@@ -11,8 +11,8 @@ const heal_after : float = 4.0
 const heal_again : float = 0.5
 const shooting_time : float = 30
 const jam_time : float = 10
-const max_time_between_shots : float = 0.25
-const min_time_between_shots : float = 0.05
+const time_between_shots : float = 0.1
+const inaccruracy : float = 0.2
 
 static var instance : Player = null
 
@@ -61,8 +61,9 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if (!is_jammed and can_shoot and Input.is_action_pressed("shoot")):
-		gun_fied.emit(position.direction_to(get_global_mouse_position()))
-		%ShootTimer.start(randf_range(min_time_between_shots, max_time_between_shots))
+		var target_direction : Vector2 = position.direction_to(get_global_mouse_position())
+		gun_fied.emit(target_direction.rotated(randf_range(-inaccruracy,inaccruracy)))
+		%ShootTimer.start(time_between_shots)
 		can_shoot = false
 
 func _on_damageable_died() -> void:
