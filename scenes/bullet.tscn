@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctgpble7f0or4"]
+[gd_scene load_steps=6 format=3 uid="uid://ctgpble7f0or4"]
 
 [ext_resource type="Script" path="res://scenes/bullet.gd" id="1_2kc60"]
 [ext_resource type="Texture2D" uid="uid://fatdummukn8u" path="res://asssets/tmp_bullet_sprite.png" id="2_uwtnm"]
 [ext_resource type="Script" path="res://scenes/damager.gd" id="3_6v884"]
+[ext_resource type="AudioStream" uid="uid://cwwxspa26e4ym" path="res://asssets/sounds/gun_shot_0.wav" id="4_hung1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wk3e2"]
 radius = 3.16228
@@ -25,6 +26,10 @@ script = ExtResource("3_6v884")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damager"]
 shape = SubResource("CircleShape2D_wk3e2")
+
+[node name="GunShot0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hung1")
+autoplay = true
 
 [connection signal="timeout" from="DeathTimer" to="." method="die"]
 [connection signal="did_damage" from="Damager" to="." method="_on_damager_did_damage"]
