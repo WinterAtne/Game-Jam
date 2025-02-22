@@ -20,6 +20,7 @@ static var instance : Player = null
 
 @export var hit_sound : AudioStream = null
 @export var jam_sound : AudioStream = null
+@export var heal_sound : AudioStream = null
 
 var knockback : Vector2 = Vector2.ZERO
 var is_jammed : bool = false
@@ -86,9 +87,10 @@ func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: V
 
 func _on_heal_timer_timeout() -> void:
 	var new_health = %Damageable.heal(1)
-	%HealTimer.start(heal_again)
 	%PlayerStatus.set_health(new_health)
-
+	AudioManager.play_sound(heal_sound)
+	if new_health != %Damageable.max_health:
+		%HealTimer.start(heal_again)
 
 func _on_jam_timer_timeout() -> void:
 	if is_jammed:

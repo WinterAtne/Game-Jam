@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpc1b408ujakp"]
+[gd_scene load_steps=12 format=3 uid="uid://cpc1b408ujakp"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_r8t1g"]
 [ext_resource type="Texture2D" uid="uid://cp8y0caaxvah5" path="res://asssets/tmp_player_sprite.png" id="2_f5uee"]
 [ext_resource type="PackedScene" uid="uid://dv663kbkwx3ck" path="res://scenes/gun.tscn" id="3_7s370"]
+[ext_resource type="AudioStream" uid="uid://c65m53xh5j1ma" path="res://asssets/sounds/player_heal.wav" id="4_75bhi"]
 [ext_resource type="Script" path="res://scenes/damageable.gd" id="4_s10mj"]
 [ext_resource type="PackedScene" uid="uid://xhg38k6w2owi" path="res://scenes/ui/tint_layer.tscn" id="5_iyi54"]
 [ext_resource type="PackedScene" uid="uid://beqeb8a1qit2n" path="res://scenes/ui/player_status.tscn" id="6_vnc02"]
@@ -21,6 +22,7 @@ collision_mask = 32768
 script = ExtResource("1_r8t1g")
 hit_sound = ExtResource("7_jhs24")
 jam_sound = ExtResource("8_ovcmo")
+heal_sound = ExtResource("4_75bhi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_f5uee")
