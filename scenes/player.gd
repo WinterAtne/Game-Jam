@@ -58,3 +58,4 @@ func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: V
 	knockback = attacker.knockback * -direction
 	velocity += knockback / 4
 	%TintLayer.change_color(damage_color, color_transition_weight)
+	%PlayerStatus.set_health(new_health)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xhg38k6w2owi"]
 
-[ext_resource type="Script" path="res://scenes/tint_layer.gd" id="1_3uwe4"]
+[ext_resource type="Script" path="res://scenes/ui/tint_layer.gd" id="1_3uwe4"]
 
 [node name="Tintlayer" type="CanvasLayer"]
 layer = 10
