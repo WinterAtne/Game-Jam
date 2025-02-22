@@ -78,6 +78,7 @@ func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: V
 	%PlayerStatus.set_health(new_health)
 	%HealTimer.stop()
 	%HealTimer.start(heal_after)
+	%HitSound.play()
 
 
 func _on_heal_timer_timeout() -> void:
@@ -97,6 +98,7 @@ func _on_jam_timer_timeout() -> void:
 		is_jammed = true
 		%JamTimer.start(jam_time)
 		%TintLayer.change_color(jam_color, color_transition_weight)
+		%JamSound.play()
 		return_color = jam_color
 		gun_jammed.emit()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpc1b408ujakp"]
+[gd_scene load_steps=11 format=3 uid="uid://cpc1b408ujakp"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_r8t1g"]
 [ext_resource type="Texture2D" uid="uid://cp8y0caaxvah5" path="res://asssets/tmp_player_sprite.png" id="2_f5uee"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scenes/damageable.gd" id="4_s10mj"]
 [ext_resource type="PackedScene" uid="uid://xhg38k6w2owi" path="res://scenes/ui/tint_layer.tscn" id="5_iyi54"]
 [ext_resource type="PackedScene" uid="uid://beqeb8a1qit2n" path="res://scenes/ui/player_status.tscn" id="6_vnc02"]
+[ext_resource type="AudioStream" uid="uid://2osu2apuswxx" path="res://asssets/sounds/player_hit.wav" id="7_jhs24"]
+[ext_resource type="AudioStream" uid="uid://bbvjuaq4u47of" path="res://asssets/sounds/jam_sound.wav" id="8_ovcmo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wa74q"]
 radius = 7.0
@@ -59,6 +61,14 @@ one_shot = true
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_jhs24")
+
+[node name="JamSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_ovcmo")
 
 [connection signal="gun_fied" from="." to="Gun" method="shoot"]
 [connection signal="gun_jammed" from="." to="PlayerStatus" method="display_jam"]
