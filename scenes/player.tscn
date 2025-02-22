@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpc1b408ujakp"]
+[gd_scene load_steps=8 format=3 uid="uid://cpc1b408ujakp"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_r8t1g"]
 [ext_resource type="Texture2D" uid="uid://cp8y0caaxvah5" path="res://asssets/tmp_player_sprite.png" id="2_f5uee"]
 [ext_resource type="PackedScene" uid="uid://dv663kbkwx3ck" path="res://scenes/gun.tscn" id="3_7s370"]
 [ext_resource type="Script" path="res://scenes/damageable.gd" id="4_s10mj"]
+[ext_resource type="PackedScene" uid="uid://xhg38k6w2owi" path="res://scenes/tint_layer.tscn" id="5_iyi54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wa74q"]
 radius = 7.0
@@ -37,6 +38,9 @@ max_health = 2000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
 shape = SubResource("CircleShape2D_37oti")
+
+[node name="TintLayer" parent="." instance=ExtResource("5_iyi54")]
+unique_name_in_owner = true
 
 [connection signal="gun_fied" from="." to="Gun" method="shoot"]
 [connection signal="died" from="Damageable" to="." method="_on_damageable_died"]

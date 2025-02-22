@@ -12,6 +12,10 @@ static var instance : Player = null
 
 var knockback : Vector2 = Vector2.ZERO
 
+var normal_color : Color = Color.TRANSPARENT
+var damage_color : Color = Color(0.8, 0.0, 0.1, 0.2)
+var color_transition_weight : float = 0.1
+
 func _ready() -> void:
 	if instance == null:
 		instance = self
@@ -35,6 +39,8 @@ func _physics_process(delta: float) -> void:
 			target_velocity = knockback
 		
 		knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance * delta * Engine.physics_ticks_per_second)
+	else:
+		%TintLayer.change_color(normal_color, color_transition_weight)
 	
 	velocity = velocity.move_toward(target_velocity, SPEED * delta * Engine.physics_ticks_per_second)
 	
@@ -51,3 +57,4 @@ func _on_damageable_died() -> void:
 func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: Vector2) -> void:
 	knockback = attacker.knockback * -direction
 	velocity += knockback / 4
+	%TintLayer.change_color(damage_color, color_transition_weight)
