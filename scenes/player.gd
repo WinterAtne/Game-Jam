@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 signal gun_fied(direction : Vector2)
+signal gun_jammed()
+signal gun_unjammed()
 signal died
 
 const SPEED = 320.0
@@ -90,11 +92,13 @@ func _on_jam_timer_timeout() -> void:
 		%JamTimer.start(shooting_time)
 		%TintLayer.change_color(normal_color, color_transition_weight)
 		return_color = normal_color
+		gun_unjammed.emit()
 	else:
 		is_jammed = true
 		%JamTimer.start(jam_time)
 		%TintLayer.change_color(jam_color, color_transition_weight)
 		return_color = jam_color
+		gun_jammed.emit()
 
 
 func _on_shoot_timer_timeout() -> void:
