@@ -9,13 +9,18 @@ const UNLOCK_MOVEMENT_UNDER_KNOCKBACK = 100
 const knockback_resistance = 60
 const heal_after : float = 4.0
 const heal_again : float = 0.5
+const shooting_time : float = 30
+const jam_time : float = 10
 
 static var instance : Player = null
 
 var knockback : Vector2 = Vector2.ZERO
+var is_jammed : bool = false
 
 var normal_color : Color = Color.TRANSPARENT
+@onready var return_color : Color = normal_color
 var damage_color : Color = Color(0.8, 0.0, 0.1, 0.2)
+var jam_color : Color = Color(0.6, 0.0, 0.3, 0.2)
 var color_transition_weight : float = 0.1
 
 func _ready() -> void:
@@ -24,6 +29,7 @@ func _ready() -> void:
 	else:
 		self.queue_free()
 	
+	%JamTimer.start(shooting_time)
 
 func _physics_process(delta: float) -> void:
 	
@@ -43,14 +49,14 @@ func _physics_process(delta: float) -> void:
 		
 		knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance * delta * Engine.physics_ticks_per_second)
 	else:
-		%TintLayer.change_color(normal_color, color_transition_weight)
+		%TintLayer.change_color(return_color, color_transition_weight)
 	
 	velocity = velocity.move_toward(target_velocity, SPEED * delta * Engine.physics_ticks_per_second)
 	
 	move_and_slide()
 	
 	# Gun logic
-	if (Input.is_action_just_pressed("shoot")):
+	if (!is_jammed and Input.is_action_just_pressed("shoot")):
 		gun_fied.emit(position.direction_to(get_global_mouse_position()))
 	
 
@@ -70,3 +76,16 @@ func _on_heal_timer_timeout() -> void:
 	var new_health = %Damageable.heal(1)
 	%HealTimer.start(heal_again)
 	%PlayerStatus.set_health(new_health)
+
+
+func _on_jam_timer_timeout() -> void:
+	if is_jammed:
+		is_jammed = false
+		%JamTimer.start(shooting_time)
+		%TintLayer.change_color(normal_color, color_transition_weight)
+		return_color = normal_color
+	else:
+		is_jammed = true
+		%JamTimer.start(jam_time)
+		%TintLayer.change_color(jam_color, color_transition_weight)
+		return_color = jam_color
