@@ -1,6 +1,8 @@
 class_name EnemyType
 extends Resource
 
+@export var max_health : int = 1
+@export var knockback : float = 1250
 @export var speed : float = 300
 @export var acceloration : float = 300
 @export var change_direction : float = 4

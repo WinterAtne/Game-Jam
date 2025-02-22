@@ -11,6 +11,9 @@ var travel_direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	target = Player.instance
+	%Damageable.max_health = type.max_health
+	%Damageable.current_health = %Damageable.max_health
+	%Damager.knockback = type.knockback
 	%Sprite2D.texture = type.sprite
 
 func _physics_process(delta: float) -> void:
@@ -23,7 +26,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			coherence += direction / distance
 	
-	var target_direction : Vector2 = global_position.direction_to(target.global_position)
+	var target_direction : Vector2 = (
+		global_position.direction_to(target.global_position + (target.velocity * type.lead_by)))
 	
 	travel_direction = travel_direction.move_toward(
 		((target_direction * (1 - type.coherence_ratio))

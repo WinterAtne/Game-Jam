@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://ddte60hu2iyf0"]
+
+[ext_resource type="Script" path="res://asssets/enemies/enemy_type.gd" id="1_anxhq"]
+[ext_resource type="Texture2D" uid="uid://c68mfkbfv2jay" path="res://asssets/tmp_follower_sprite.png" id="2_qsatk"]
+
+[resource]
+script = ExtResource("1_anxhq")
+max_health = 2
+knockback = 1250.0
+speed = 600.0
+acceloration = 1200.0
+change_direction = 0.75
+lead_by = -0.25
+coherence_ratio = 0.5
+sprite = ExtResource("2_qsatk")
