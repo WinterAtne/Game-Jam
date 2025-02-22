@@ -12,3 +12,4 @@ extends Resource
 #@export var far_chase_cohere_ratio : float = 0.5
 #@export var near_chase_cohere_ratio : float = 0.8
 @export var sprite : Texture2D
+@export var max_spawn_count : int = 12
