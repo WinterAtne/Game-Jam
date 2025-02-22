@@ -32,6 +32,9 @@ func spawn_enemies() -> void:
 	spawned_enemy.type = type
 	add_child(spawned_enemy)
 	
+	# Technically, the following formula oversamples the corners in the distribution
+	# However this makes the game feel more fair
+	# By giving the player the opprotunity to see whats coming further out
 	var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	spawned_enemy.position = enemy_spawn_dinstance * direction + Player.instance.global_position
 	
