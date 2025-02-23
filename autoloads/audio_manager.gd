@@ -30,7 +30,7 @@ func play_sound(sound : AudioStream) -> void:
 	
 
 func end_sound(stream : AudioStreamPlayer) -> void:
-	stream.stream = null
+	(func(): stream.stream = null).call_deferred()
 
 func end_all_sound() -> void:
 	for s in audio_streams:

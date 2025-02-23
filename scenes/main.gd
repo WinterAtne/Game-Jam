@@ -18,16 +18,19 @@ func load_main_menu() -> void:
 	disable_ui()
 	disable_gameplay()
 	%MainMenu.visible = true
+	%MenuCamera.enabled = true
 
 func load_credits() -> void:
 	disable_ui()
 	disable_gameplay()
 	%Credits.visible = true
+	%MenuCamera.enabled = true
 
 func load_death_screen() -> void:
 	disable_ui()
 	disable_gameplay()
 	%DeathScreen.visible = true
+	%MenuCamera.enabled = true
 
 func load_level() -> void:
 	disable_ui()
@@ -41,6 +44,7 @@ func disable_ui() -> void:
 	%MainMenu.visible = false
 	%Credits.visible = false
 	%DeathScreen.visible = false
+	%MenuCamera.enabled = false
 
 func disable_gameplay() -> void:
 	if level != null:

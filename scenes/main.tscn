@@ -25,10 +25,13 @@ visible = false
 [node name="TextureRect" type="Parallax2D" parent="."]
 show_behind_parent = true
 repeat_size = Vector2(256, 256)
-repeat_times = 8
+repeat_times = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 texture = ExtResource("6_tesac")
+
+[node name="MenuCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Start" to="." method="load_level"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Credits" to="." method="load_credits"]
