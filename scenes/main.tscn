@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c46dertmd34yd"]
+[gd_scene load_steps=7 format=3 uid="uid://c46dertmd34yd"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vlr70"]
 [ext_resource type="PackedScene" uid="uid://bcp1yywo181cd" path="res://scenes/ui/main_menu.tscn" id="2_2ucyk"]
 [ext_resource type="PackedScene" uid="uid://c33c8c4k127jd" path="res://scenes/level.tscn" id="2_gxoi6"]
 [ext_resource type="PackedScene" uid="uid://b5dxatoq5gi2e" path="res://scenes/ui/credits.tscn" id="4_a46pt"]
 [ext_resource type="PackedScene" uid="uid://3mrfm35yqdr5" path="res://scenes/ui/death_screen.tscn" id="5_r7bqr"]
+[ext_resource type="Texture2D" uid="uid://cmco2nuejtaka" path="res://asssets/tmp_stary_background.png" id="6_tesac"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vlr70")
@@ -20,6 +21,14 @@ visible = false
 [node name="DeathScreen" parent="." instance=ExtResource("5_r7bqr")]
 unique_name_in_owner = true
 visible = false
+
+[node name="TextureRect" type="Parallax2D" parent="."]
+show_behind_parent = true
+repeat_size = Vector2(256, 256)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+texture = ExtResource("6_tesac")
 
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Start" to="." method="load_level"]
 [connection signal="button_down" from="MainMenu/CenterContainer/VBoxContainer/Credits" to="." method="load_credits"]

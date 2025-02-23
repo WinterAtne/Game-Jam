@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c33c8c4k127jd"]
+[gd_scene load_steps=8 format=3 uid="uid://c33c8c4k127jd"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_8rgm8"]
 [ext_resource type="PackedScene" uid="uid://cpc1b408ujakp" path="res://scenes/player.tscn" id="1_gxo64"]
 [ext_resource type="Script" path="res://asssets/enemies/enemy_type.gd" id="2_mrpoq"]
 [ext_resource type="PackedScene" uid="uid://c05uv3ypr1134" path="res://scenes/enemies/enemy.tscn" id="2_yo8rh"]
 [ext_resource type="Resource" uid="uid://4ekfeluxrnkf" path="res://asssets/enemies/chaser.tres" id="4_5aby5"]
-[ext_resource type="Texture2D" uid="uid://cmco2nuejtaka" path="res://asssets/tmp_stary_background.png" id="4_fl1cp"]
 [ext_resource type="Resource" uid="uid://bo7e2x4b8lhd7" path="res://asssets/enemies/leader.tres" id="5_850gv"]
 [ext_resource type="Resource" uid="uid://ddte60hu2iyf0" path="res://asssets/enemies/follower.tres" id="6_k7eys"]
 
@@ -16,14 +15,6 @@ enemy_types = Array[ExtResource("2_mrpoq")]([ExtResource("4_5aby5"), ExtResource
 enemy_spawn_dinstance = 400
 
 [node name="Player" parent="." instance=ExtResource("1_gxo64")]
-
-[node name="TextureRect" type="Parallax2D" parent="."]
-show_behind_parent = true
-repeat_size = Vector2(256, 256)
-repeat_times = 8
-
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
-texture = ExtResource("4_fl1cp")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true

@@ -19,12 +19,18 @@ text = "Nothing Can Go Wrong"
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Start"
+flat = true
 
 [node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Options"
+flat = true
 
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Credits"
+flat = true

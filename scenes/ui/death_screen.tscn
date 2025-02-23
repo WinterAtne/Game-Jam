@@ -21,9 +21,13 @@ uppercase = true
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Restart"
+flat = true
 
 [node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Main Menu
 "
+flat = true
