@@ -34,6 +34,8 @@ var damage_color : Color = Color(0.8, 0.0, 0.1, 0.2)
 var jam_color : Color = Color(0.6, 0.0, 0.3, 0.2)
 var color_transition_weight : float = 0.1
 
+var jam_count : int = 0
+
 func _ready() -> void:
 	if instance == null:
 		instance = self
@@ -110,6 +112,7 @@ func _on_jam_timer_timeout() -> void:
 		AudioManager.play_sound(jam_sound)
 		AudioManager.play_sound(jam_song)
 		return_color = jam_color
+		jam_count += 1
 		gun_jammed.emit()
 
 

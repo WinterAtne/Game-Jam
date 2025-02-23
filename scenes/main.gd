@@ -33,6 +33,8 @@ func load_credits() -> void:
 	%MenuCamera.enabled = true
 
 func load_death_screen() -> void:
+	if Player.instance != null:
+		%DeathScreen.set_death_count(Player.instance.jam_count)
 	disable_ui()
 	disable_gameplay()
 	%DeathScreen.visible = true
