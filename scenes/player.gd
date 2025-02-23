@@ -20,6 +20,7 @@ static var instance : Player = null
 
 @export var hit_sound : AudioStream = null
 @export var jam_sound : AudioStream = null
+@export var jam_song : AudioStream = null
 @export var heal_sound : AudioStream = null
 
 var knockback : Vector2 = Vector2.ZERO
@@ -104,6 +105,7 @@ func _on_jam_timer_timeout() -> void:
 		%JamTimer.start(jam_time)
 		%TintLayer.change_color(jam_color, color_transition_weight)
 		AudioManager.play_sound(jam_sound)
+		AudioManager.play_sound(jam_song)
 		return_color = jam_color
 		gun_jammed.emit()
 

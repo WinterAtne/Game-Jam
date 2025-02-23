@@ -1,6 +1,6 @@
 extends Node
 
-const initial_streams : int = 64 # Yes we instance that many
+const initial_streams : int = 8
 
 var audio_streams : Array[AudioStreamPlayer] = []
 
@@ -30,5 +30,7 @@ func play_sound(sound : AudioStream) -> void:
 	
 
 func end_sound(stream : AudioStreamPlayer) -> void:
-	#stream.stream = null
-	pass
+	stream.stream = null
+
+func _on_baseline_finished() -> void:
+	%Baseline.play()
