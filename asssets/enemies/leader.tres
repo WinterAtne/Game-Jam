@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_lfp5n")
+damage = 2
 max_health = 1
 knockback = 1250.0
 speed = 500.0

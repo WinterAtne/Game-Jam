@@ -16,6 +16,7 @@ func _ready() -> void:
 	%Damageable.max_health = type.max_health
 	%Damageable.current_health = %Damageable.max_health
 	%Damager.knockback = type.knockback
+	%Damager.damage = type.damage
 	%Sprite2D.texture = type.sprite
 
 func _physics_process(delta: float) -> void:
