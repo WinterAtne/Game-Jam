@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_anxhq")
+damage = 1
 max_health = 2
 knockback = 1250.0
 speed = 600.0
@@ -13,3 +14,4 @@ change_direction = 2.0
 lead_by = -0.25
 coherence_ratio = 0.5
 sprite = ExtResource("2_qsatk")
+max_spawn_count = 12
