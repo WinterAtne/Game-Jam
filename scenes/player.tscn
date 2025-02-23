@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpc1b408ujakp"]
+[gd_scene load_steps=14 format=3 uid="uid://cpc1b408ujakp"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_r8t1g"]
 [ext_resource type="Texture2D" uid="uid://cp8y0caaxvah5" path="res://asssets/tmp_player_sprite.png" id="2_f5uee"]
+[ext_resource type="AudioStream" uid="uid://df4f2icnoabav" path="res://asssets/sounds/baseline.wav" id="2_q75mj"]
 [ext_resource type="PackedScene" uid="uid://dv663kbkwx3ck" path="res://scenes/gun.tscn" id="3_7s370"]
 [ext_resource type="AudioStream" uid="uid://c65m53xh5j1ma" path="res://asssets/sounds/player_heal.wav" id="4_75bhi"]
 [ext_resource type="AudioStream" uid="uid://cia8skq0pquo3" path="res://asssets/sounds/jam_song.wav" id="4_q5f55"]
@@ -21,6 +22,7 @@ radius = 8.0
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("1_r8t1g")
+shooting_song = ExtResource("2_q75mj")
 hit_sound = ExtResource("7_jhs24")
 jam_sound = ExtResource("8_ovcmo")
 jam_song = ExtResource("4_q5f55")

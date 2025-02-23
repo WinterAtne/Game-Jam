@@ -18,6 +18,7 @@ const inaccruracy : float = 0.2
 
 static var instance : Player = null
 
+@export var shooting_song : AudioStream = null
 @export var hit_sound : AudioStream = null
 @export var jam_sound : AudioStream = null
 @export var jam_song : AudioStream = null
@@ -100,6 +101,7 @@ func _on_jam_timer_timeout() -> void:
 		%TintLayer.change_color(normal_color, color_transition_weight)
 		return_color = normal_color
 		gun_unjammed.emit()
+		AudioManager.play_sound(shooting_song)
 	else:
 		is_jammed = true
 		%JamTimer.start(jam_time)
