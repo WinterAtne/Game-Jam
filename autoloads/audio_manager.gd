@@ -32,5 +32,9 @@ func play_sound(sound : AudioStream) -> void:
 func end_sound(stream : AudioStreamPlayer) -> void:
 	stream.stream = null
 
+func end_all_sound() -> void:
+	for s in audio_streams:
+		s.stream = null
+
 func _on_baseline_finished() -> void:
 	%Baseline.play()

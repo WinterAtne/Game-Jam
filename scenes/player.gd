@@ -76,6 +76,7 @@ func _process(_delta: float) -> void:
 
 func _on_damageable_died() -> void:
 	died.emit()
+	AudioManager.end_all_sound()
 
 func _on_damageable_took_damage(attacker: Damager, new_health: int, direction: Vector2) -> void:
 	knockback = attacker.knockback * -direction

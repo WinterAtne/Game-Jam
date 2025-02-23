@@ -14,6 +14,7 @@ layout_mode = 2
 
 [node name="SplashText" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 15
 text = "you died"
 horizontal_alignment = 1
 uppercase = true
