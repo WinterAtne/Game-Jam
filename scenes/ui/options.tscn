@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://xtm5srwoutqq"]
+
+[ext_resource type="Script" path="res://scenes/ui/options.gd" id="1_5ec14"]
+
+[node name="Options" type="CanvasLayer"]
+script = ExtResource("1_5ec14")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = " Options "
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound"
+
+[node name="SoundSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -10.0
+max_value = 10.0
+
+[node name="Buttons" type="CenterContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MainMenu" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Main Menu"
+flat = true
+
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
